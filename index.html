@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peshk0v | Кофе & Код</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/index/style.css">
+</head>
+<body>
+    <section class="hero">
+        <div class="avatar-wrapper">
+            <img src="src/index/avatar.png" alt="Peshk0v" class="avatar">
+            <div class="avatar-deco"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Привет!<br>Я FrontEnd Алхимик</h1>
+            <p class="tagline">Превращаю кофе в цифровые шедевры. <br>Люблю сложные задачи и красивые анимации.</p>
+            <div class="tech-stack">
+              <div class="tech-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968350.png" alt="Python">
+                  <span>Python</span>
+              </div>
+              <div class="tech-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png" alt="JavaScript">
+                  <span>JavaScript</span>
+              </div>
+              <div class="tech-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/174/174854.png" alt="HTML">
+                  <span>HTML5</span>
+              </div>
+              <div class="tech-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" alt="CSS">
+                  <span>CSS3</span>
+              </div>
+              <div class="tech-item">
+                  <img src="https://cdn-icons-png.flaticon.com/512/5968/5968672.png" alt="Bash">
+                  <span>Bash</span>
+              </div>
+          </div>
+          </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Последние проекты</h2>
+            
+            <div class="projects-grid">
+                <!-- Проект 1 -->
+                <div class="project-card">
+                    <img src="https://github.com/peshk0v/SakuraLauncher/raw/main/web/img/Icon.png?raw=true" alt="SakuraLauncher" class="project-image">
+                    <h3>SakuraLauncher</h3>
+                    <p>Современный лаунчер для Minecraft с анимированным интерфейсом и системой модов</p>
+                    <div class="project-links">
+                        <a href="https://github.com/peshk0v/SakuraLauncher" class="btn"><i class="fab fa-github"></i> Код</a>
+                        <a href="https://peshk0v.github.io/SakuraWebsite/" class="btn"><i class="fas fa-eye"></i> Сайт</a>
+                    </div>
+                </div>
+
+                <!-- Проект 2 -->
+                <div class="project-card">
+                    <img src="https://cdn.javarush.com/images/article/7b1c59b6-5da7-4091-932c-c9982f0b5014/512.jpeg" alt="Химический гид" class="project-image">
+                    <h3>Химический гид</h3>
+                    <p>Интерактивная платформа для изучения химии с тестами и структурированной информацией</p>
+                    <div class="project-links">
+                        <a href="https://peshk0v.github.io/biolKvantPro/" class="btn"><i class="fas fa-eye"></i> Сайт</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+          <div class="footer-content">
+              <p class="footer-text">Свяжитесь со мной: <a href="mailto:peshkv@proton.me">peshkv@proton.me</a></p>
+              <div class="social-links">
+                  <a href="https://t.me/pshlst" class="btn" target="_blank">
+                      <i class="fab fa-telegram"></i> Мой Telegram канал
+                  </a>
+              </div>
+          </div>
+      </div>
+  </footer>
+
+    <script>
+        // Анимации при скролле
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.project-card').forEach((el) => {
+            observer.observe(el);
+        });
+
+        // Параллакс для декора аватарки
+        document.addEventListener('mousemove', (e) => {
+            const deco = document.querySelector('.avatar-deco');
+            const xAxis = (window.innerWidth/2 - e.pageX)/30;
+            const yAxis = (window.innerHeight/2 - e.pageY)/30;
+            deco.style.transform = `translate(-50%, -50%) rotate(${xAxis + yAxis}deg)`;
+        });
+    </script>
+</body>
+</html>

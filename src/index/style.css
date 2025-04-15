@@ -1,0 +1,259 @@
+:root {
+  --cream: #FFF5EB;
+  --coffee: #3D2B1F;
+  --accent: #A67B5B;
+  --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--coffee);
+  overflow-x: hidden;
+}
+
+/* Герой секция */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 4rem;
+  position: relative;
+}
+
+.avatar-wrapper {
+  position: relative;
+  max-width: 500px;
+  filter: drop-shadow(20px 20px 30px rgba(61,43,31,0.1));
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 1s 0.3s forwards;
+}
+
+.avatar {
+  width: 100%;
+  border-radius: 30% 70% 53% 47% / 30% 30% 70% 70%;
+  border: 4px solid var(--accent);
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-deco {
+  position: absolute;
+  width: 120%;
+  height: 120%;
+  border: 2px dashed var(--accent);
+  border-radius: 39% 61% 70% 30% / 44% 39% 61% 56%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: rotate 25s linear infinite;
+}
+
+@keyframes slideIn {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.hero-content {
+  padding-left: 4rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: contentAppear 1s 0.6s forwards;
+}
+
+@keyframes contentAppear {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.5rem;
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  width: 100px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  margin-bottom: 3rem;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* Секция проектов */
+.projects {
+  padding: 8rem 4rem;
+  background: rgba(166,123,91,0.05);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+.project-card {
+  background: white;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 15px 40px rgba(61,43,31,0.1);
+  transition: var(--transition);
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+}
+
+.project-image {
+  width: 100%;
+  height: 250px;
+  border-radius: 15px;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: var(--accent);
+  color: var(--cream);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.btn i {
+  margin-right: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(166,123,91,0.2);
+}
+
+@media (max-width: 768px) {
+  .hero {
+      grid-template-columns: 1fr;
+      padding: 2rem;
+      text-align: center;
+  }
+
+  .avatar-wrapper {
+      max-width: 300px;
+      margin: 0 auto 3rem;
+  }
+
+  .hero-content {
+      padding-left: 0;
+  }
+
+  h1 {
+      font-size: 3rem;
+  }
+
+  h1::after {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+
+  .projects {
+      padding: 4rem 2rem;
+  }
+  
+}
+.tech-stack {
+display: flex;
+gap: 1.5rem;
+flex-wrap: wrap;
+margin-top: 2rem;
+}
+
+.tech-item {
+padding: 0.8rem 1.5rem;
+background: rgba(166, 123, 91, 0.1);
+border-radius: 30px;
+font-size: 0.9rem;
+display: flex;
+align-items: center;
+gap: 0.8rem;
+transition: var(--transition);
+}
+
+.tech-item img {
+height: 24px;
+width: 24px;
+object-fit: contain;
+}
+
+.tech-item:hover {
+transform: translateY(-3px);
+background: rgba(166, 123, 91, 0.2);
+}
+
+.footer {
+  background: rgba(166, 123, 91, 0.08);
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-text {
+  font-size: 1.2rem;
+  color: var(--coffee);
+  margin-bottom: 2rem;
+}
+
+.footer-text a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-text a:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .footer {
+      padding: 2rem 1rem;
+  }
+}
