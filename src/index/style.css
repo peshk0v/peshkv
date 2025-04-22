@@ -166,6 +166,25 @@ h1::after {
   box-shadow: 0 10px 20px rgba(166,123,91,0.2);
 }
 
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: var(--accent);
+  color: var(--cream);
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 50px;
+  text-decoration: none;
+  text-align: center;
+  transition: var(--transition);
+  margin-top: 2rem;
+}
+
+.btn-primary:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(166, 123, 91, 0.3);
+}
+
 @media (max-width: 768px) {
   .hero {
       grid-template-columns: 1fr;
